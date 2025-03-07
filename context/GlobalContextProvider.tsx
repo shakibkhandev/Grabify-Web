@@ -34,7 +34,7 @@ export const GlobalContextProvider: React.FC<GlobalProviderProps> = ({
     console.log("Context API Working ?");
   }, []);
   return (
-    <MantineProvider theme={theme}>
+    <MantineProvider defaultColorScheme="dark" theme={theme}>
       <GlobalContext.Provider value={{ sayHello }}>
         {children}
       </GlobalContext.Provider>
