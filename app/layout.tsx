@@ -29,9 +29,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{backgroundColor: "#242424"}}
       >
         <GlobalContextProvider>
-        <HeaderMegaMenu />
           {children}</GlobalContextProvider>
       </body>
     </html>
