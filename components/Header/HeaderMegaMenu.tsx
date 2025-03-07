@@ -1,6 +1,5 @@
 "use client";
 import {
-  Anchor,
   Box,
   Burger,
   Button,
@@ -20,44 +19,43 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
-  IconBook,
-  IconChartPie3,
-  IconChevronDown,
-  IconCode,
-  IconCoin,
-  IconFingerprint,
-  IconNotification,
-  IconBrandYoutube,
   IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandTiktok
+  IconBrandTiktok,
+  IconBrandYoutube,
+  IconChevronDown,
 } from "@tabler/icons-react";
 import Link from "next/link";
+import { ArticleCard } from "../ArticleCard/ArticleCard";
 import classes from "./HeaderMegaMenu.module.css";
 
 const mockdata = [
   {
     icon: IconBrandYoutube,
     title: "YouTube",
-    description: "Download your favorite videos from YouTube in multiple formats and resolutions.",
+    description:
+      "Download your favorite videos from YouTube in multiple formats and resolutions.",
     link: "/youtube",
   },
   {
     icon: IconBrandFacebook,
     title: "Facebook",
-    description: "Easily download videos from Facebook to enjoy them offline anytime.",
+    description:
+      "Easily download videos from Facebook to enjoy them offline anytime.",
     link: "/facebook",
   },
   {
     icon: IconBrandInstagram,
     title: "Instagram",
-    description: "Save Instagram videos and stories for offline viewing at your convenience.",
+    description:
+      "Save Instagram videos and stories for offline viewing at your convenience.",
     link: "/instagram",
   },
   {
     icon: IconBrandTiktok,
     title: "TikTok",
-    description: "Download viral TikTok videos and keep up with the latest trends offline.",
+    description:
+      "Download viral TikTok videos and keep up with the latest trends offline.",
     link: "/tiktok",
   },
   // {
@@ -72,7 +70,6 @@ const mockdata = [
   // },
 ];
 
-
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
@@ -80,22 +77,23 @@ export function HeaderMegaMenu() {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
-  <Link href={`${item.link}`} onClick={() => closeDrawer()}>
-    <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group wrap="nowrap" align="flex-start">
-        <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon size={22} color={theme.colors.blue[6]} />
-        </ThemeIcon>
-        <div>
-          <Text size="sm" fw={500}>
-            {item.title}
-          </Text>
-          <Text size="xs" c="dimmed">
-            {item.description}
-          </Text>
-        </div>
-      </Group>
-    </UnstyledButton></Link>
+    <Link href={`${item.link}`} onClick={() => closeDrawer()}>
+      <UnstyledButton className={classes.subLink} key={item.title}>
+        <Group wrap="nowrap" align="flex-start">
+          <ThemeIcon size={34} variant="default" radius="md">
+            <item.icon size={22} color={theme.colors.blue[6]} />
+          </ThemeIcon>
+          <div>
+            <Text size="sm" fw={500}>
+              {item.title}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {item.description}
+            </Text>
+          </div>
+        </Group>
+      </UnstyledButton>
+    </Link>
   ));
 
   return (
@@ -216,6 +214,9 @@ export function HeaderMegaMenu() {
             <Button variant="default">Log in</Button>
             <Button>Sign up</Button>
           </Group>
+     <div className="p-10">
+     <ArticleCard />
+     </div>
         </ScrollArea>
       </Drawer>
     </Box>
