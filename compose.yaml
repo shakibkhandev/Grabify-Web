@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: grabify-db
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo:/data/db
+    networks:
+      - grabify-network
+  
+networks:
+  grabify-network:
+
+volumes:
+  mongo:
