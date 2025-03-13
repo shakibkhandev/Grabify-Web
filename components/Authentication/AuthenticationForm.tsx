@@ -16,6 +16,7 @@ import {
   import { upperFirst, useToggle } from '@mantine/hooks';
   import { GoogleButton } from './GoogleButton';
   import { TwitterButton } from './TwitterButton';
+import { redirect } from 'next/navigation';
   
   export function AuthenticationForm(props: PaperProps) {
     const [type, toggle] = useToggle(['login', 'register']);
@@ -40,7 +41,8 @@ import {
         </Text>
   
         <Group grow mb="md" mt="md">
-          <GoogleButton radius="xl">Google</GoogleButton>
+          <GoogleButton radius="xl" onClick={() => redirect(process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL as string) }>
+           Google</GoogleButton>
           <TwitterButton radius="xl">Twitter</TwitterButton>
         </Group>
   
